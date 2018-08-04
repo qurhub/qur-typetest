@@ -1,0 +1,30 @@
+{
+  "name": "qur-typetest-poc",
+  "version": "0.0.1",
+  "description": "???",
+  "bin": {
+    "qur-typetest": "./bin/qur-typetest.js"
+  },
+  "scripts": {
+    "test": "mocha --recursive",
+    "test-debug": "mocha --recursive --inspect",
+    "lint": "tslint --project ."
+  },
+  "author": "Nurbol Alpysbayev",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/???/???"
+  },
+  "devDependencies": {
+    "@types/chai": "latest",
+    "@types/mocha": "latest",
+    "@types/node": "^10.5.6",
+    "chai": "latest",
+    "mocha": "latest",
+    "tslint": "latest"
+  },
+  "dependencies": {
+    "typescript": "^3.0.1"
+  }
+}

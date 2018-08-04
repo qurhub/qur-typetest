@@ -1,0 +1,18 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "semicolon": [true, "never"],
+        "max-file-line-count": [true, 70],
+        // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html
+        "no-default-export": true,
+        "no-require-imports": true,
+        "arrow-parens": false,
+        "interface-over-type-literal": false,
+        "interface-name": false
+    },
+    "rulesDirectory": []
+}
