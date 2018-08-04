@@ -1,5 +1,5 @@
 import * as fs from "fs"
-import { guards } from "./src/VAR.guards"
+import { guards } from "./VAR.guards"
 
 // todo test
 export function getTestfiles(): string[] {

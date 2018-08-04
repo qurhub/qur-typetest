@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const FUN_getTestfiles_1 = require("../FUN.getTestfiles");
-const FUN_runTestfile_1 = require("../FUN.runTestfile");
+const FUN_getTestfiles_1 = require("../src/FUN.getTestfiles");
+const FUN_runTestfile_1 = require("../src/FUN.runTestfile");
 FUN_getTestfiles_1.getTestfiles().forEach((testfile) => {
     FUN_runTestfile_1.runTestfile(testfile);
 });

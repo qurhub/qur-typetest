@@ -3,8 +3,8 @@
 // require('yargs')
 // .command('register')
 
-import { getTestfiles } from "../FUN.getTestfiles"
-import { runTestfile } from "../FUN.runTestfile"
+import { getTestfiles } from "../src/FUN.getTestfiles"
+import { runTestfile } from "../src/FUN.runTestfile"
 
 getTestfiles().forEach((testfile) => {
     runTestfile(testfile)

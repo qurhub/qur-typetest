@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
-const VAR_guards_1 = require("./src/VAR.guards");
+const VAR_guards_1 = require("./VAR.guards");
 // todo test
 function getTestfiles() {
     const dir = "./test/qur-types";
