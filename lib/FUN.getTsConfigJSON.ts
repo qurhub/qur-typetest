@@ -1,6 +1,6 @@
 import { readFileSync } from "fs"
 import * as ts from "typescript"
-import { guards } from "./src/VAR.guards"
+import { guards } from "./VAR.guards"
 
 export function getTsconfigJson() {
 

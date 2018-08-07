@@ -3,16 +3,21 @@
 // require('yargs')
 // .command('register')
 
-import { getTestfiles } from "../src/FUN.getTestfiles"
-import { runTestfile } from "../src/FUN.runTestfile"
+import { getTestfiles } from "../lib/FUN.getTestfiles"
+import { printResults } from "../lib/FUN.printResults";
+import { runTestfile } from "../lib/FUN.runTestfile"
+import { iterateTestfilesState } from "../lib/Var.state"
 
 getTestfiles().forEach((testfile) => {
+    iterateTestfilesState.increment()
     runTestfile(testfile)
 })
 
+printResults()
+
 /**
  * todo i need typescript here.
- * this file has no extension that's why 
+ * this file has no extension that's why
  * i need local ts, that maps source to output correctly
  */
 
