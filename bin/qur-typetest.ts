@@ -4,22 +4,18 @@
 // .command('register')
 
 import { getTestfiles } from "../lib/FUN.getTestfiles"
-import { printResults } from "../lib/FUN.printResults";
+import { printResults } from "../lib/FUN.printResults"
 import { runTestfile } from "../lib/FUN.runTestfile"
 import { iterateTestfilesState } from "../lib/Var.state"
 
 getTestfiles().forEach((testfile) => {
     iterateTestfilesState.increment()
+
     runTestfile(testfile)
 })
 
 printResults()
 
-/**
- * todo i need typescript here.
- * this file has no extension that's why
- * i need local ts, that maps source to output correctly
- */
-
-
-// todo auto generate api key server side, save to server and client in .nyanconf
+if (iterateTestfilesState.failed) {
+    process.exit(1)
+}

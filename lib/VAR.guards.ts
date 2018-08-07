@@ -2,7 +2,6 @@ import * as fs from "fs"
 import { CONSTANTS } from "./CST"
 
 // todo IMPORTANT replace this errors with qur-error
-
 export const guards = {
     testfilesDirectoryMustExist(dir: string) {
         if (!fs.existsSync(dir)) {

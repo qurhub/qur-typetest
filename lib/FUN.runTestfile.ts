@@ -1,42 +1,37 @@
-import * as ts from "typescript"
-import { getTsconfigJson } from "./FUN.getTsConfigJSON";
+import chalk from "chalk"
+import Project, * as tss from "ts-simple-ast"
+import { getTsconfigJson } from "./FUN.getTsConfigJSON"
+import { iterateTestfilesState } from "./Var.state"
 
-function _compile(fileNames: string[], options: ts.CompilerOptions): void {
-    const program = ts.createProgram(fileNames, options);
-    const emitResult = program.emit()
+function diagnose(fileName: string, compilerOptions: tss.CompilerOptions) {
+    const project = new Project()
+    project.addExistingSourceFile(fileName)
 
-    const allDiagnostics = ts
-        .getPreEmitDiagnostics(program)
-        .concat(emitResult.diagnostics)
+    const diagnostics = project.getDiagnostics()
 
-    allDiagnostics.forEach(diagnostic => {
-        if (diagnostic.file) {
-            const { line, character } = diagnostic.file.getLineAndCharacterOfPosition(
-                diagnostic.start!,
-            )
-            const message = ts.flattenDiagnosticMessageText(
-                diagnostic.messageText,
-                "\n",
-            )
-            console.log(
-                `${diagnostic.file.fileName} (${line + 1},${character + 1}): ${message}`
-            )
-        } else {
-            console.log(
-                `${ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n")}`
-            )
-        }
-    })
+    let failed = false
 
-    const exitCode = emitResult.emitSkipped ? 1 : 0
-    console.log(`Process exiting with code '${exitCode}'.`)
-    process.exit(exitCode)
+    if (diagnostics.some((d) => {
+        return d.getCategory() === tss.DiagnosticCategory.Error
+    })) {
+        iterateTestfilesState.incrementFailed()
+        failed = true
+
+        // tslint:disable-next-line:no-console
+        console.log(chalk.red(`  ✗ ${fileName}`))
+
+        diagnostics.forEach((d) => {
+            // tslint:disable-next-line:no-console
+            console.log(chalk.red(`\r\n  ${d.getMessageText()}\r\n`))
+            // tslint:disable-next-line:no-console
+            console.log(chalk.gray(`  at ${fileName}:${d.getLineNumber()}:${d.getStart()}`))
+        })
+    } else {
+        // tslint:disable-next-line:no-console
+        console.log(chalk.green(`  ✓ ${fileName}`))
+    }
 }
 
 export function runTestfile(filename: string) {
-
-    console.log(getTsconfigJson()) // TODO DELETE
-    process.exit()
-    
-    return _compile([filename], getTsconfigJson())
+    diagnose(filename, getTsconfigJson().config.compilerOptions)
 }

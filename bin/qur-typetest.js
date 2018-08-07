@@ -10,9 +10,6 @@ FUN_getTestfiles_1.getTestfiles().forEach((testfile) => {
     FUN_runTestfile_1.runTestfile(testfile);
 });
 FUN_printResults_1.printResults();
-/**
- * todo i need typescript here.
- * this file has no extension that's why
- * i need local ts, that maps source to output correctly
- */
-// todo auto generate api key server side, save to server and client in .nyanconf
+if (Var_state_1.iterateTestfilesState.failed) {
+    process.exit(1);
+}

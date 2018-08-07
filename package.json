@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
-    "lodash": "^4.17.10",
-    "typescript": "^3.0.1"
+    "ts-simple-ast": "^13.0.0"
   }
 }
