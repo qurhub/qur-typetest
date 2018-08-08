@@ -1,9 +1,10 @@
 import * as fs from "fs"
 import * as path from "path"
+import { CONSTANTS } from "./CST"
 import { guards } from "./VAR.guards"
 
 export function getTestfiles(): string[] {
-    const dir = "./test/qur-types"
+    const dir = "./test/" + CONSTANTS.CMD.TYPETEST.NAME
 
     guards.testfilesDirectoryMustExist(dir)
 

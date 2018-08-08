@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "???",
   "bin": {
-    "qur-typetest": "./bin/qur-typetest.js"
+    "typetest": "./bin/typetest.js"
   },
   "scripts": {
     "test": "mocha --recursive",
@@ -21,12 +21,14 @@
     "@types/lodash": "^4.14.116",
     "@types/mocha": "latest",
     "@types/node": "^10.5.6",
+    "@types/yargs": "^11.1.1",
     "chai": "latest",
     "mocha": "latest",
     "tslint": "latest"
   },
   "dependencies": {
     "chalk": "^2.4.1",
-    "ts-simple-ast": "^13.0.0"
+    "ts-simple-ast": "^13.0.0",
+    "yargs": "^12.0.1"
   }
 }

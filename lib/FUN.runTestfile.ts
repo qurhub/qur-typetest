@@ -7,15 +7,17 @@ function diagnose(fileName: string, compilerOptions: tss.CompilerOptions) {
     const project = new Project()
     project.addExistingSourceFile(fileName)
 
-    const diagnostics = project.getDiagnostics()
+    const diagnostics = project.getPreEmitDiagnostics()
 
-    let failed = false
+    let failed
 
     if (diagnostics.some((d) => {
         return d.getCategory() === tss.DiagnosticCategory.Error
     })) {
-        iterateTestfilesState.incrementFailed()
-        failed = true
+        if (!failed) {
+            iterateTestfilesState.incrementFailed()
+            failed = true
+        }
 
         // tslint:disable-next-line:no-console
         console.log(chalk.red(`  ✗ ${fileName}`))
@@ -27,6 +29,8 @@ function diagnose(fileName: string, compilerOptions: tss.CompilerOptions) {
             console.log(chalk.gray(`  at ${fileName}:${d.getLineNumber()}:${d.getStart()}`))
         })
     } else {
+        iterateTestfilesState.incrementPassed()
+
         // tslint:disable-next-line:no-console
         console.log(chalk.green(`  ✓ ${fileName}`))
     }

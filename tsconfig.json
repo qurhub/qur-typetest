@@ -9,6 +9,6 @@
     "strict": true
   },
   "exclude": [
-    "test/qur-types"
+    "test/qur-typetest"
   ]
 }
