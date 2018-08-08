@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+function foo() {
+    return 111;
+}
 const yargs = require("yargs");
 const FUN_getTestfiles_1 = require("../lib/FUN.getTestfiles");
 const FUN_printResults_1 = require("../lib/FUN.printResults");

@@ -1,6 +1,7 @@
 import chalk from "chalk"
 import Project, * as tss from "ts-simple-ast"
 import { getTsconfigJson } from "./FUN.getTsConfigJSON"
+import { testFailed } from "./FUN.runTestfile.testFailed"
 import { iterateTestfilesState } from "./Var.state"
 
 function diagnose(fileName: string, compilerOptions: tss.CompilerOptions) {
@@ -8,25 +9,20 @@ function diagnose(fileName: string, compilerOptions: tss.CompilerOptions) {
     project.addExistingSourceFile(fileName)
 
     const diagnostics = project.getPreEmitDiagnostics()
+    const failedMsgs = testFailed(fileName, diagnostics)
 
-    let failed
-
-    if (diagnostics.some((d) => {
-        return d.getCategory() === tss.DiagnosticCategory.Error
-    })) {
-        if (!failed) {
-            iterateTestfilesState.incrementFailed()
-            failed = true
-        }
+    if (failedMsgs && failedMsgs.length) {
+        iterateTestfilesState.incrementFailed()
 
         // tslint:disable-next-line:no-console
-        console.log(chalk.red(`  ✗ ${fileName}`))
+        console.log(chalk.red(`  ✗ ` + chalk.gray(fileName)))
+        // todo test that if multiple errors exist, only once above line shows
 
-        diagnostics.forEach((d) => {
+        failedMsgs.forEach((failedMsg) => {
             // tslint:disable-next-line:no-console
-            console.log(chalk.red(`\r\n  ${d.getMessageText()}\r\n`))
+            console.log(chalk.red(`\r\n  ${failedMsg.msg}\r\n`))
             // tslint:disable-next-line:no-console
-            console.log(chalk.gray(`  at ${fileName}:${d.getLineNumber()}:${d.getStart()}`))
+            console.log(chalk.gray(failedMsg.location))
         })
     } else {
         iterateTestfilesState.incrementPassed()
