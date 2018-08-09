@@ -120,9 +120,10 @@ npm run qur-typetest
 
 ## FAQ
 
-#####Why should I add at least one `export/import` to a test file?
+### Why should I add at least one `export/import` to a test file?
+
 Because otherwise typescript thinks your files are parts of one code block, not an isolated module. Presence of `export/import` make typescript think that the file is a module and thus, it is isolated. You can omit using `export/import` until you actually encounter the described problem.
 
-#####Name
+### Name
 
 Why "qur-typetest" and not just "typetest"? Because "qur" is going to be an ecosystem of libraries, it is work in progress now. Also this is done in order to avoid collisions with probably existing "test/typetest" folders. Also, npm just not allowed to create "typetest" named library.
