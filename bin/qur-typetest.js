@@ -8,8 +8,17 @@ const FUN_runTestfile_1 = require("../lib/FUN.runTestfile");
 const Var_state_1 = require("../lib/Var.state");
 // tslint:disable-next-line:no-unused-expression
 yargs
-    .command("*", "checks every file in test/qur-typetest", {}, () => {
+    .command("*", "checks every file in test/qur-typetest", (argv) => {
+    return argv.positional("filter", {
+        describe: "filter file names",
+    });
+}, (argv) => {
     FUN_getTestfiles_1.getTestfiles().forEach((testfile) => {
+        if (argv.filter) {
+            if (!testfile.includes(argv.filter)) {
+                return;
+            }
+        }
         Var_state_1.iterateTestfilesState.increment();
         FUN_runTestfile_1.runTestfile(testfile);
     });
