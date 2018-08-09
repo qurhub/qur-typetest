@@ -59,7 +59,7 @@ export const str: string = 1
 ## Install
 
 ```
-npm install typetest
+npm install @qur/typetest
 ```
 
 In your `tsconfig.json`:
@@ -77,7 +77,7 @@ In your `tsconfig.json`:
 // package.json
 "scripts": {
   ...
-  "typetest": "typetest"
+  "typetest": "qur-typetest"
   ...
 }
 ```
@@ -87,7 +87,7 @@ In your `tsconfig.json`:
 mkdir test
 mkdir test/qur-typetest
 echo "const str: string = 1" > test/qur-typetest/myTypeTest.ts
-npm run typetest
+npm run qur-typetest
 ```
 
 ## TODO
@@ -102,4 +102,4 @@ npm run typetest
 Because otherwise typescript thinks your files are parts of one code flow. Single `export` or `import` make typescript think that the file is a module and thus, it is isolated. You can omit using `export` until you actually encounter described problem.
 
 **Name**
-Why "qur-typetest" and not just "typetest"? Because "qur" is going to be an ecosystem of libraries, it is work in progress now. Also this is done in order to avoid collisions with probably existing "test/typetest" folders.
+Why "qur-typetest" and not just "typetest"? Because "qur" is going to be an ecosystem of libraries, it is work in progress now. Also this is done in order to avoid collisions with probably existing "test/typetest" folders. Also, npm just not allowed to create "typetest" named library.
