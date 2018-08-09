@@ -91,11 +91,11 @@ npm run typetest
 ```
 
 ## TODO
-[x] Testing types
-[ ] tests of this very library
-[ ] prettier errors
-[ ] Cli command "init" to create test/qur-typetest folder
-[ ] Cli command "create" to create test files
+- [x] Testing types
+- [ ] tests of this very library
+- [ ] prettier errors
+- [ ] Cli command "init" to create test/qur-typetest folder
+- [ ] Cli command "create" to create test files
 
 ## FAQ
 **Why `export` was used in the example?**
