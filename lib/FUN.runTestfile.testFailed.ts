@@ -26,7 +26,7 @@ export function testFailed(filename: string, diagnostics: tss.Diagnostic[]): fal
 
                 errorMsgs.push({
                     location: `  at ${filename}:${d.getLineNumber()}:${d.getStart()}`,
-                    msg: `${filename} was expected to fail with message
+                    msg: `${filename} was expected to fail with a message
 
     ${errorMessageThatShouldBeThrown}
 

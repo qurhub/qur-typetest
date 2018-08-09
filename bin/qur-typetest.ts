@@ -10,10 +10,6 @@
 // todo publish this as a typetest (later in future, move it to @qur/typetest)
 // todo look make more like mocha http://unitjs.com/assets/img/screen_console_unitjs_and_mocha_demo2.png
 
-function foo(): string {
-    return 111
-}
-
 import * as yargs from "yargs"
 import { getTestfiles } from "../lib/FUN.getTestfiles"
 import { printResults } from "../lib/FUN.printResults"

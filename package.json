@@ -1,9 +1,9 @@
 {
-  "name": "qur-typetest-poc",
-  "version": "0.0.1",
-  "description": "???",
+  "name": "qur-typetest",
+  "version": "1.0.0",
+  "description": "Testing typescript types",
   "bin": {
-    "typetest": "./bin/typetest.js"
+    "qur-typetest": "./bin/qur-typetest.js"
   },
   "scripts": {
     "test": "mocha --recursive",
@@ -14,7 +14,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/???/???"
+    "url": "git://github.com/anurbol/qur-typetest-poc"
   },
   "devDependencies": {
     "@types/chai": "latest",
