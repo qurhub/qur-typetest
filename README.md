@@ -22,19 +22,24 @@ For simplicity we show example with simple types.
 
 *file1.ts:*
 ```ts
-export const str: string = "foo"
+const str: string = "foo"
 ```
 
 *file2.ts:*
 ```ts
 // tt:throws:Type '1' is not assignable to type 'string'.
-export const str: string = 1
+const str: string = 1
 ```
 
 *file3.ts:*
 ```ts
 // tt:throws:Foo some wrong error message
-export const str: string = 1
+const str: string = 1
+```
+
+Note: each test file should have at least one `export` or `import` expression. This way Typescript compiler would consider those files as modules, i.e. isolated code blocks. Otherwise for the example above `tsc` would generate errors `Cannot redeclare block-scoped variable 'str'`. If you don't have any `export` or `import` then simply add this in the end of the file:
+```ts
+export {}
 ```
 
 **Result:**
@@ -98,8 +103,8 @@ npm run typetest
 - [ ] Cli command "create" to create test files
 
 ## FAQ
-**Why `export` was used in the example?**
-Because otherwise typescript thinks your files are parts of one code flow. Single `export` or `import` make typescript think that the file is a module and thus, it is isolated. You can omit using `export` until you actually encounter described problem.
+**Why should I add at lest one `export/import` to a test file?**
+Because otherwise typescript thinks your files are parts of one code block, not an isolated module. Presence of `export/import` make typescript think that the file is a module and thus, it is isolated. You can omit using `export/import` until you actually encounter the described problem.
 
 **Name**
 Why "qur-typetest" and not just "typetest"? Because "qur" is going to be an ecosystem of libraries, it is work in progress now. Also this is done in order to avoid collisions with probably existing "test/typetest" folders. Also, npm just not allowed to create "typetest" named library.

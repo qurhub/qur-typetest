@@ -1,1 +1,3 @@
-export const str: string = "foo"
+const str: string = "foo"
+
+export {}
