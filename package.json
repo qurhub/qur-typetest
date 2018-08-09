@@ -1,6 +1,6 @@
 {
   "name": "@qur/typetest",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Testing typescript types",
   "bin": {
     "qur-typetest": "./bin/qur-typetest.js"
@@ -14,7 +14,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anurbol/qur-typetest-poc"
+    "url": "git://github.com/qurhub/qur-typetest"
   },
   "devDependencies": {
     "@types/chai": "latest",
