@@ -63,7 +63,7 @@ npm install typetest
 ```
 
 In your `tsconfig.json`:
-```json
+```
 "compilerOptions": {...}
 "exclude": [
   "test/qur-typetest" // add this
@@ -73,7 +73,7 @@ In your `tsconfig.json`:
 ## Usage
 1. 
 
-```json
+```
 // package.json
 "scripts": {
   ...
