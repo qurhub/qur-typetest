@@ -87,7 +87,7 @@ In your `tsconfig.json`:
 mkdir test
 mkdir test/qur-typetest
 echo "const str: string = 1" > test/qur-typetest/myTypeTest.ts
-npm run qur-typetest
+npm run typetest
 ```
 
 ## TODO

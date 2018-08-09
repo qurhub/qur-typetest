@@ -1,5 +1,5 @@
 {
-  "name": "qur-typetest",
+  "name": "@qur/typetest",
   "version": "1.0.0",
   "description": "Testing typescript types",
   "bin": {
