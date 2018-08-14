@@ -79,7 +79,7 @@ export {}
 ## Install
 
 ```shell
-npm install @qur/typetest
+npm install @qur/typetest --save-dev
 ```
 
 Add `test/qur-typetest` to the `exclude` option of your `tsconfig.json`
@@ -104,10 +104,21 @@ Add a script to package.json
 Do the following
 
 ```shell
-mkdir test
-mkdir test/qur-typetest
+npm run qur-typetest -- init
 echo "const str: string = 1" > test/qur-typetest/myTypeTest.ts
 npm run qur-typetest
+```
+
+## CI
+
+In order to include types testing to your Continuous Integration process,
+you should run `typetest` with other tests. Your `test` script in `package.json` can
+look like this:
+
+```json
+"scripts": {
+  "test": "mocha && typetest"
+}
 ```
 
 ## TODO

@@ -6,10 +6,11 @@
 // todo test: create tests and run them in CI
 
 import * as yargs from "yargs"
+import { createTestFolder } from "../lib/FUN.createTestFolder"
 import { getTestfiles } from "../lib/FUN.getTestfiles"
 import { printResults } from "../lib/FUN.printResults"
 import { runTestfile } from "../lib/FUN.runTestfile"
-import { iterateTestfilesState } from "../lib/Var.state"
+import { iterateTestfilesState } from "../lib/VAR.state"
 
 // tslint:disable-next-line:no-unused-expression
 yargs
@@ -17,7 +18,7 @@ yargs
         return argv.positional("filter", {
             describe: "filter file names",
         })
-    }, (argv: {[key: string]: string}) => {
+    }, (argv: { [key: string]: string }) => {
 
         getTestfiles().forEach((testfile) => {
             if (argv.filter) {
@@ -35,10 +36,12 @@ yargs
             process.exit(1)
         }
 
-        return process.exit(0)
     })
     .command(["init", "i"], "create test", {}, () => {
-        console.log("foo") // TODO DELETE
+
+        createTestFolder()
+        // todo
+        // addExcludeToTsconfig()
 
     })
     .argv

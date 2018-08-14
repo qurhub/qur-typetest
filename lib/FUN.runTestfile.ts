@@ -2,7 +2,7 @@ import chalk from "chalk"
 import Project, * as tss from "ts-simple-ast"
 import { getTsconfigJson } from "./FUN.getTsConfigJSON"
 import { testFailed } from "./FUN.runTestfile.testFailed"
-import { iterateTestfilesState } from "./Var.state"
+import { iterateTestfilesState } from "./VAR.state"
 
 function diagnose(fileName: string, compilerOptions: tss.CompilerOptions) {
     const project = new Project()

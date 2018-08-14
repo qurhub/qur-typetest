@@ -1,13 +1,15 @@
 {
   "name": "@qur/typetest",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Testing typescript types",
   "bin": {
     "qur-typetest": "./bin/qur-typetest.js"
   },
   "scripts": {
-    "test": "mocha --recursive",
-    "test-debug": "mocha --recursive --inspect",
+    "typetest": "node ./bin/qur-typetest.js",
+    "test": "tsc && npm run lint && npm run typetest && npm run mocha-test",
+    "mocha-test": "mocha --recursive",
+    "mocha-test-debug": "mocha --recursive --inspect",
     "lint": "tslint --project ."
   },
   "author": "Nurbol Alpysbayev",
@@ -27,7 +29,9 @@
     "tslint": "latest"
   },
   "dependencies": {
+    "@types/mkdirp": "^0.5.2",
     "chalk": "^2.4.1",
+    "mkdirp": "^0.5.1",
     "ts-simple-ast": "^13.0.0",
     "yargs": "^12.0.1"
   }

@@ -4,7 +4,7 @@ import { CONSTANTS } from "./CST"
 import { guards } from "./VAR.guards"
 
 export function getTestfiles(): string[] {
-    const dir = "./test/" + CONSTANTS.CMD.TYPETEST.NAME
+    const dir = CONSTANTS.TESTFILES_DIR
 
     guards.testfilesDirectoryMustExist(dir)
 

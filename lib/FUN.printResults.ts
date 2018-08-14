@@ -1,5 +1,5 @@
 import chalk from "chalk"
-import { iterateTestfilesState } from "./Var.state"
+import { iterateTestfilesState } from "./VAR.state"
 
 export function printResults() {
     const state = iterateTestfilesState
