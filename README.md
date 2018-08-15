@@ -49,7 +49,7 @@ const str: string = 1
 const str: string = 1
 ```
 
-Note: each test file should have at least one `export` or `import` expression. This way Typescript compiler would consider those files as modules, i.e. isolated code blocks. Otherwise for the example above `tsc` would generate errors `Cannot redeclare block-scoped variable 'str'`. If you don't have any `export` or `import` then simply add this in the end of the file:
+Note: each test file should have at least one `export` or `import` expression. This way Typescript compiler would consider those files as modules, i.e. isolated code blocks. Otherwise for the example above `tsc` would generate errors `Cannot redeclare block-scoped variable 'str'`. Because of this reason, add this in the end of each files:
 
 ```ts
 export {}
@@ -112,7 +112,7 @@ npm run qur-typetest
 ## CI
 
 In order to include types testing to your Continuous Integration process,
-you should run `typetest` with other tests. Your `test` script in `package.json` can
+you should run `typetest` with other tests. Your `test` script in `package.json` could
 look like this:
 
 ```json
@@ -125,8 +125,9 @@ look like this:
 
 - [x] Testing types
 - [ ] tests of this very library
-- [ ] prettier errors
-- [ ] Cli command "init" to create test/qur-typetest folder
+- [x] prettier errors
+- [x] Cli command "init" to create test/qur-typetest folder
+- [ ] Cli command "init" adds `exclude` to tsconfig.json
 - [ ] Cli command "create" to create test files
 
 ## FAQ
