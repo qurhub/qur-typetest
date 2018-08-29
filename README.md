@@ -85,7 +85,7 @@ npm install @qur/typetest --save-dev
 Add `test/qur-typetest` to the `exclude` option of your `tsconfig.json`
 
 ```json
-"compilerOptions": {}
+"compilerOptions": {},
 "exclude": [
   "test/qur-typetest"
 ]
@@ -104,9 +104,9 @@ Add a script to package.json
 Do the following
 
 ```shell
-npm run qur-typetest -- init
+npm run typetest -- init
 echo "const str: string = 1" > test/qur-typetest/myTypeTest.ts
-npm run qur-typetest
+npm run typetest
 ```
 
 ## CI

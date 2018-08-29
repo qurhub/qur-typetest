@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/chai": "latest",
     "@types/lodash": "^4.14.116",
+    "@types/mkdirp": "^0.5.2",
     "@types/mocha": "latest",
     "@types/node": "^10.5.6",
     "@types/yargs": "^11.1.1",
@@ -29,7 +30,6 @@
     "tslint": "latest"
   },
   "dependencies": {
-    "@types/mkdirp": "^0.5.2",
     "chalk": "^2.4.1",
     "mkdirp": "^0.5.1",
     "ts-simple-ast": "^13.0.0",
